@@ -1,0 +1,4 @@
+- [x] Update iframe src in pages/Contact.tsx to new Google Maps embed URL
+- [x] Update iframe src in pages/Home.tsx to new Google Maps embed URL
+- [x] Update address in pages/Home.tsx contact section to "672A, Hosakerehalli Layout, Banashankari 3rd Stage, Banashankari, Bengaluru, Karnataka 560085"
+- [x] Update phone number in pages/Home.tsx contact section to "+91 8970032228, 9964566801"
