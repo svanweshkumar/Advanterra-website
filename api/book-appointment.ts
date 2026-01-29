@@ -24,7 +24,7 @@ export const handler: Handler = async (event) => {
     }
 
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "contact@mail.advanterra.in",
       to: "advanterraconstruction@gmail.com",
       subject: `New Appointment Booking Request: ${fullName}`,
       html: `

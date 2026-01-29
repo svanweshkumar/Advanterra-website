@@ -22,7 +22,7 @@ export const handler: Handler = async (event) => {
     }
 
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // must be verified in Resend
+      from: "contact@mail.advanterra.in", // must be verified in Resend
       to: "advanterraconstruction@gmail.com",
       subject: `New Contact Form Submission: ${subject}`,
       html: `
