@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Clock, Calendar } from 'lucide-react';
 
-const API_URL = (import.meta as any).env.VITE_API_URL || '';
+const API_URL = '';
 
 const BookAppointment: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
