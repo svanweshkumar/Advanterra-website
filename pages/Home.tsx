@@ -103,7 +103,7 @@ const Home: React.FC = () => {
     setLastSubmitTime(now);
 
     try {
-      const response = await fetch(`${API_URL}/api/book-appointment`, {
+      const response = await fetch("/.netlify/functions/book-appointment", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

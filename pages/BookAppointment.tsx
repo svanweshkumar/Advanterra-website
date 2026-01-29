@@ -27,12 +27,16 @@ const BookAppointment: React.FC = () => {
     
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/api/book-appointment`, {
+      const response = await fetch("/.netlify/functions/book-appointment", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ name: formData.fullName,
+                              email: formData.email,
+                              phone: formData.phone,
+                              date: formData.date,
+                              message: formData.message})
       });
 
       if (!response.ok) {
