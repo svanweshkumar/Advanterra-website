@@ -5,14 +5,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ message: "Method not allowed" }),
-    };
+    return { statusCode: 405, body: "Method not allowed" };
   }
 
   try {
-    const { fullName, email, phone, date, message } = JSON.parse(event.body || "{}");
+    const { fullName, email, phone, date, message } =
+      JSON.parse(event.body || "{}");
 
     if (!fullName || !email || !date) {
       return {
@@ -23,34 +21,26 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    const data = await resend.emails.send({
+    await resend.emails.send({
       from: "contact@mail.advanterra.in",
       to: "advanterraconstruction@gmail.com",
       subject: `New Appointment Booking Request: ${fullName}`,
       html: `
         <h2>New Appointment Booking Request</h2>
-        <p><strong>Full Name:</strong> ${fullName}</p>
+        <p><strong>Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-        <p><strong>Preferred Date:</strong> ${date}</p>
-        <p><strong>Project Details / Message:</strong></p>
-        <p>${message ? message.replace(/\n/g, "<br>") : "No additional details provided"}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p>${message || "No additional details"}</p>
       `,
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        message: "Appointment request sent successfully",
-        data,
-      }),
+      body: JSON.stringify({ message: "Appointment request sent successfully" }),
     };
   } catch (error) {
     console.error("Appointment error:", error);
-
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: "Failed to send appointment request" }),
-    };
+    return { statusCode: 500, body: "Failed to send appointment request" };
   }
 };
