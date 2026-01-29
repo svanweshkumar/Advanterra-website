@@ -99,16 +99,6 @@ const Navbar: React.FC = () => {
               {link.name}
             </button>
           ))}
-          <div className="pt-4">
-            <Link 
-              to="/appointment"
-              className="flex items-center justify-center space-x-3 bg-orange-600 text-white px-6 py-6 rounded-[2rem] font-black uppercase tracking-[0.2em] text-xs shadow-2xl shadow-orange-600/30"
-              onClick={() => setIsOpen(false)}
-            >
-              <Shield size={16} />
-              <span>Administrative Access</span>
-            </Link>
-          </div>
         </div>
       )}
     </nav>

@@ -131,19 +131,15 @@ const Contact: React.FC = () => {
           </div>
         </div>
         
-        {/* Mock Map */}
-        <div className="mt-24 h-96 bg-gray-200 rounded-3xl overflow-hidden relative shadow-inner border border-gray-300">
-           <div className="absolute inset-0 flex items-center justify-center flex-col text-gray-400">
-             <MapPin size={48} className="mb-4" />
-             <p className="font-bold uppercase tracking-widest text-sm">Interactive Map Location Loading...</p>
-           </div>
-           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5923124678698!2d77.53790537495523!3d12.933904087378057!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f004da9553d%3A0x5c9817286f2b6925!2sADVANTERRA%20CONSTRUCTION!5e0!3m2!1sen!2sin!4v1769445875563!5m2!1sen!2sin" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={true} 
-            loading="lazy" 
+        {/* Interactive Map */}
+        <div className="mt-24 h-96 bg-gray-200 rounded-3xl overflow-hidden relative shadow-inner border border-gray-300 cursor-pointer" onClick={() => window.open('https://www.google.com/maps/search/672A,+Hosakerehalli+Layout,+Banashankari+3rd+Stage,+Banashankari,+Bengaluru,+Karnataka+560085', '_blank')}>
+           <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5923124678698!2d77.53790537495523!3d12.933904087378057!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f004da9553d%3A0x5c9817286f2b6925!2sADVANTERRA%20CONSTRUCTION!5e0!3m2!1sen!2sin!4v1769445875563!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0, pointerEvents: 'none' }}
+            allowFullScreen={true}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
