@@ -7,7 +7,7 @@ import { Project, ProjectCategory, Testimonial } from '../types';
 import { INITIAL_PROJECTS, INITIAL_TESTIMONIALS, SERVICES } from '../constants';
 import Founders from '../components/Founders';
 
-const API_URL = (import.meta as any).env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = '';
 
 const Home: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
